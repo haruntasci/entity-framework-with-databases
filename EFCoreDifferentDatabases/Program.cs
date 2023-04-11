@@ -1,4 +1,5 @@
 using EFCoreDifferentDatabases.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace EFCoreDifferentDatabases
 {
@@ -12,7 +13,11 @@ namespace EFCoreDifferentDatabases
             builder.Services.AddControllersWithViews();
 
             // TODO : Set database provider
-            //builder.Services.AddDbContext<DatabaseContext>();
+            builder.Services.AddDbContext<DatabaseContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+                //options.UseLazyLoadingProxies();
+            });
 
 
             var app = builder.Build();
