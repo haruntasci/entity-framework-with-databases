@@ -9,6 +9,7 @@
   <ItemGroup>
     <PackageReference Include="MFramework.Services.FakeData" Version="1.0.22" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.15" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.15" />
   </ItemGroup>
 
 </Project>
