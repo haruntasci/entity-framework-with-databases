@@ -17,9 +17,23 @@ namespace EFCoreDifferentDatabases.Controllers
             //_databaseContext = databaseContext;
         }
 
-        public IActionResult Index([FromServices] DatabaseContext databaseContext)
+        public IActionResult Index()
         {
-            return View(databaseContext.Albums.ToList());            
+
+            // TODO : Set database context 
+            List<Album> albums = new List<Album>();
+
+            for(int i = 0; i < 10 ; i++)
+            {
+                albums.Add(new Album
+                {
+                    Id = i,
+                    Name = NameData.GetCompanyName(),
+                    Description = TextData.GetSentence()
+                });
+            }
+
+            return View(albums);
         }
         public string ImportData([FromServices] DatabaseContext databaseContext)
         {
